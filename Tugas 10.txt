@@ -1,0 +1,103 @@
+Tugas 10
+
+1.	Buat database importdata
+2. 	Buat table buahbuahan dengan ketentuan seperti berikut:
+	- Terdapat kolom id_buah int(10) primary key, nama_buah varchar (50) dan varietas_buah varchar(50)
+3. 	Import data dari file sql ke dalam table buahbuahan: 
+	https://drive.google.com/file/d/1_lFGNXXiwakapzE44Exv-BfEXxokb8GS/view?usp=sharing
+
+
+
+Jawaban:
+1.	MariaDB [(none)]> CREATE DATABASE importdata;
+	Query OK, 1 row affected (0.002 sec)
+
+	MariaDB [(none)]> USE importdata;
+	Database changed
+	MariaDB [importdata]>
+
+
+
+
+2.	MariaDB [importdata]> CREATE TABLE buahbuahan(
+	    -> id_buah int(10) primary key, nama_buah varchar (50), varietas_buah varchar(50)
+	    -> );
+	Query OK, 0 rows affected (0.047 sec)
+
+	MariaDB [importdata]> DESC buahbuahan;
+	+---------------+-------------+------+-----+---------+-------+
+	| Field         | Type        | Null | Key | Default | Extra |
+	+---------------+-------------+------+-----+---------+-------+
+	| id_buah       | int(10)     | NO   | PRI | NULL    |       |
+	| nama_buah     | varchar(50) | YES  |     | NULL    |       |
+	| varietas_buah | varchar(50) | YES  |     | NULL    |       |
+	+---------------+-------------+------+-----+---------+-------+
+	3 rows in set (0.034 sec)
+
+	MariaDB [importdata]>
+
+
+
+
+3.	MariaDB [importdata]> DROP TABLE IF EXISTS buahbuahan;
+	Query OK, 0 rows affected (0.052 sec)
+
+	MariaDB [importdata]> SHOW TABLES;
+	Empty set (0.001 sec)
+
+	MariaDB [importdata]> SOURCE c:/xampp/mysql/bin/buahbuahan.sql;
+	Query OK, 0 rows affected (0.003 sec)
+
+	Query OK, 0 rows affected (0.000 sec)
+
+	Query OK, 0 rows affected (0.000 sec)
+
+	Query OK, 0 rows affected (0.000 sec)
+
+	Query OK, 0 rows affected (0.000 sec)
+
+	Query OK, 0 rows affected (0.000 sec)
+
+	Query OK, 0 rows affected (0.000 sec)
+
+	Query OK, 0 rows affected (0.002 sec)
+
+	Query OK, 0 rows affected (0.023 sec)
+
+	Query OK, 12 rows affected (0.011 sec)
+	Records: 12  Duplicates: 0  Warnings: 0
+
+	Query OK, 0 rows affected (0.051 sec)
+	Records: 0  Duplicates: 0  Warnings: 0
+
+	Query OK, 12 rows affected (0.071 sec)
+	Records: 12  Duplicates: 0  Warnings: 0
+
+	Query OK, 0 rows affected (0.000 sec)
+
+	Query OK, 0 rows affected (0.000 sec)
+
+	Query OK, 0 rows affected (0.001 sec)
+
+	Query OK, 0 rows affected (0.000 sec)
+
+	MariaDB [importdata]> SELECT * FROM buahbuahan;
+	+---------+-----------+---------------------+
+	| id_buah | nama_buah | varietas            |
+	+---------+-----------+---------------------+
+	|       1 | Apple     | Red Delicious       |
+	|       2 | Pear      | Comice              |
+	|       3 | Orange    | Navel               |
+	|       4 | Pear      | Bartlett            |
+	|       5 | Orange    | Blood               |
+	|       6 | Apple     | Cox's Orange Pippin |
+	|       7 | Apple     | Granny Smith        |
+	|       8 | Pear      | Anjou               |
+	|       9 | Orange    | Valencia            |
+	|      10 | Banana    | Plantain            |
+	|      11 | Banana    | Burro               |
+	|      12 | Banana    | Cavendish           |
+	+---------+-----------+---------------------+
+	12 rows in set (0.001 sec)
+
+	MariaDB [importdata]>
